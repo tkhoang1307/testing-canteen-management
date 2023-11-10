@@ -1,0 +1,83 @@
+{{!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style-login-signup.css">
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery-3.6.1.min.js"></script>
+    <title>Sign up</title>
+</head> --}}
+
+<body>
+    {{!-- <link rel="stylesheet" href="css/login-signupStyle.css"> --}}
+    {{!-- <h3 style="margin:20px">hehe</h3> --}}
+    <link rel="stylesheet" href="css/login-signupStyle.css">
+    <h3>{{message}}</h3>
+    <div class="sign-up-parent-container">
+        <h3>Đăng ký</h3>
+        <div class="container" style="width: 85vw;">
+            <div class="row">
+                <div class="col-sm-12 col-lg-6 offset-lg-3">
+                    <div class="sign_up_form inner_page">
+                        <form id="sign-up-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control input-field" id="name" placeholder="Tên" name="name"
+                                    required autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" class="form-control input-field" id="phone" placeholder="Số điện thoại" required
+                                    name="phone">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control input-field" id="email" name="email" required
+                                    placeholder="Email">
+                            </div>
+                            <div class="form-group mb-4">
+                                <input id="username" type="text" class="form-control input-field" name="username" required
+                                    placeholder="Tên đăng nhập" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control input-field" id="password" name="password" required
+                                    placeholder="Mật khẩu">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control input-field" id="confirm-password" required
+                                    placeholder="Nhập lại mật khẩu">
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col d-flex justify-content-center">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="agreed" checked="false" />
+                                        <label class="form-check-label" for="agreed">Tôi đồng ý với các Chính sách dịch
+                                            vụ và bảo mật</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 col d-flex justify-content-center">
+                                <button id="sign-up-btn" type="button" class="btn btn-log btn-block btn-thm2">Đăng kí</button>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="text-center">
+                                    <p>Đã có tài khoản? <a href="/sign-in">Đăng nhập</a></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="script/signUpScript.js"></script>
+</body>
+
+</html>

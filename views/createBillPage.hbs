@@ -1,0 +1,60 @@
+<body>
+
+    <link rel="stylesheet" href="css/importGoodsStyle.css" />
+    <div class="pop-up hidden">
+        <div class="popup-container">
+            <div class="notification">
+                <div class="noti-header">
+                    <i class="fas fa-window-close"></i>
+                </div>
+                <div class="noti-content-container">
+                    <div class="noti-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{#if message}}
+    <h3>{{message}}</h3>
+    {{/if}}
+    <div class="panel-container">
+        <h3>Tạo đơn hàng</h3>
+
+        <div id="detail-rows">
+            <div class="card-body import-good-main-panel">
+                <div id="add-btn">
+                    <i class="fa-solid fa-plus add-new-line"></i>
+                </div>
+
+                <div class="input-group mb-3 input-row" id="row-1">
+                    <span class="input-group-text">Mặt hàng</span>
+                    <select class="form-select category-field" id="category-1" value="">
+                        <option value="" selected>Chọn mặt hàng</option>
+                        {{#each goodsList}}
+                        <option value="{{this.ma_mat_hang}}">{{this.ten_mat_hang}}</option>
+                        {{/each}}
+                    </select>
+                    <span class="input-group-text">Số lượng hiện có</span>
+                    <input type="number" class="form-control remain-amount-field" id="remain-amount-1" value=""
+                        disabled>
+                    <span class="input-group-text">Giá bán</span>
+                    <input type="text" class="form-control price-field" id="price-1" value="" disabled>
+                    <span class="input-group-text ">Số lượng mua</span>
+                    <input type="number" class="form-control amount-field" id="amount-1" value="">
+                    <i class="fa-solid fa-delete-left" id="delete-btn-1"></i>
+                </div>
+
+            </div>
+            <div class="confirm-btn-div">
+
+
+                <button id="confirm-btn" type="button" class="btn btn-success">Tạo đơn</button>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="script/createBillScript.js"></script>
+    <script src="script/globalScript.js"></script>
+</body>

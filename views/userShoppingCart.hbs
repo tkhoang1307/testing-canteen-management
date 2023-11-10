@@ -1,0 +1,272 @@
+{{!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style-user.css">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <title>Shopping Cart</title>
+</head> --}}
+
+<body>
+    <link rel="stylesheet" href="/css/shoppingCartStyle.css">
+    <link rel="stylesheet" href="/css/receiptFormStyle.css">
+    <h3>{{message}}</h3>
+    <div class="container">
+        <div class="contentbar">
+            <!-- Start row -->
+            <div class="row">
+                <!-- Start col -->
+                <div class="col-md-12 col-lg-12 col-xl-12 mt-3 mb-3">
+                    <div class="card m-b-30">
+                        <div class="card-header cart-header">
+                            <h3 class="card-title text-center ">GIỎ HÀNG</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-12 col-xl-10">
+                                    <div class="cart-container">
+                                        <div class="cart-head">
+                                            <div class="table-responsive">
+                                                <table class="table table-borderless">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Sản phẩm</th>
+                                                            <th scope="col">Số lượng</th>
+                                                            <th scope="col" class="text-center">Số lượng trong kho</th>
+                                                            <th scope="col">Đơn giá</th>
+                                                            <th scope="col" class="text-right">Thành tiền</th>
+                                                            {{!-- {{#if showEdit}} --}}
+
+                                                            {{!-- <th scope="col"
+                                                                class="visibility-change visibility-hidden">
+                                                                Chỉnh sửa</th> --}}
+
+                                                            {{!-- {{/if}} --}}
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {{#each arrProduct}}
+                                                        <tr class="product-item" id="{{this.id}}">
+                                                            <th scope="row" class="name-pro">{{this.ten}}</th>
+                                                            <td>
+                                                                <div class="form-group mb-0">
+                                                                    <input type="number"
+                                                                        class="form-control cart-qty quantity-item"
+                                                                        name="cartQty1" value="{{this.so_luong}}">
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center quantity-item-store">{{this.so_luong_hang}}</td>
+                                                            <td>{{ConvertToVND this.gia_ban}}</td>
+                                                            <td class="text-right">{{ConvertToVND this.thanh_tien}}</td>
+                                                            {{!-- {{#if ../showEdit}} --}}
+                                                            <td class="visibility-change visibility-hidden text-center">
+                                                                <button type="button"
+                                                                    class="btn btn-link btn-sm px-3 delete-product-btn"
+                                                                    data-ripple-color="dark" id="{{this.id}}">
+                                                                    <i class="fa-solid fa-trash"></i>
+                                                                </button>
+                                                            </td>
+                                                            {{!-- {{/if}} --}}
+                                                        </tr>
+                                                        {{/each}}
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="cart-body">
+                                            <div class="row">
+
+                                                <div class="col-md-12 order-1 order-lg-2 col-lg-7 col-xl-6">
+                                                    <div class="order-total table-responsive ">
+                                                        <table class="table table-borderless text-right">
+                                                            <tbody>
+
+                                                                <tr>
+                                                                    <td class="f-w-7 font-18">
+                                                                        <h4>Tổng tiền :</h4>
+                                                                    </td>
+                                                                    <td class="f-w-7 font-18">
+                                                                        <h4 id="total">{{ ConvertToVND total}}</h4>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cart-footer text-center mt-3 d-flex justify-content-between">
+                                            <button type="button" id="edit-cart" class="btn btn-info my-1"><i
+                                                    class="ri-save-line mr-2"></i>Chỉnh sửa giỏ hàng</button>
+
+                                            <button type="button" id="update-cart"
+                                                class="btn btn-info my-1 visibility-change visibility-hidden"><i
+                                                    class="ri-save-line mr-2"></i>Cập nhật</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End col -->
+            </div>
+            <div class="d-flex flex-column align-items-end">
+                <div class="col-lg-4 float-start d-flex justify-content-between">
+                    <label class="text-bold">Số dư tài khoản: </label>
+                    <div id="user-balance">{{ConvertToVND balance}}</div>
+                </div>
+                <div class="col-lg-4 float-end mt-3">
+                    <label class="text-bold">Chọn hình thức thanh toán</label>
+                    <span class="text-danger">*</span>
+                    <select class="form-select menu-payment mt-3" aria-label="Default select example">
+                        <option value="0">Open this select menu</option>
+                        <option value="1">Tài khoản căn tin</option>
+                        <option value="2">Ví Momo</option>
+                    </select>
+                </div>
+
+                <div class="d-flex flex-row-reverse">
+                    <div class="payment-class mt-3 mb-3">
+                    <a class="btn btn-info my-1" id="payment">Thanh toán
+                        <i class="ri-arrow-right-line ml-2"></i></a>
+                </div>
+                <div class="view-receipt mt-3 mb-3 ">
+                    <a class="btn btn-info my-1 hidden" id="view-receipt-btn">Xem hóa đơn
+                        <i class="ri-arrow-right-line ml-2"></i></a>
+                </div>
+                </div>
+                
+            </div>
+
+
+            {{!-- <img id="qr-order" src="" alt=""> --}}
+
+
+            <!-- End row -->
+        </div>
+    </div>
+    <div class="pop-up hidden">
+        <div class="popup-container">
+            <div class="notification">
+                <div class="noti-header">
+                    <i class="fas fa-window-close"></i>
+                </div>
+                <div class="noti-content-container">
+                    <div class="noti-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    {{!-- hóa đơn --}}
+    <div class="container-pos hidden">
+        <div id="invoice-POS">
+
+            <div id="top">
+                <!-- <div class="logo"></div> -->
+                <img id="logo" src="/images/logo-hcmus.png" alt="">
+                <div class="info">
+                    <h2>CĂN TIN HCMUS</h2>
+                </div>
+                <!--End Info-->
+            </div>
+            <!--End InvoiceTop-->
+
+            <div id="mid">
+                <div class="info">
+                    <!-- <h2>Thông tin liên hệ</h2> -->
+                    <p id="contact-info">
+                        Địa chỉ : Khu phố 6, Phường Linh Trung, Quận Thủ Đức, Hồ Chí Minh</br>
+                        Email : cantinHCMUS@edu.com.vn</br>
+                        Điện thoại : 028.3896.7366</br>
+                    </p>
+                </div>
+            </div>
+            <!--End Invoice Mid-->
+            <div class="info">
+                <h2>HÓA ĐƠN BÁN HÀNG</h2>
+                <h3 id="orderID"></h3>
+            </div>
+            <div id="bot">
+
+                <div id="table">
+                    <table>
+                        <tr class="tabletitle">
+                            <td class="item">
+                                <h2>Mặt hàng</h2>
+                            </td>
+                            <td class="Hours">
+                                <h2>Số lượng</h2>
+                            </td>
+                            <td class="Rate">
+                                <h2>Thành tiền</h2>
+                            </td>
+                        </tr>
+
+                        {{#each arrProduct}}
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">{{this.ten}}</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{this.so_luong}}</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{ConvertToVND this.thanh_tien}}</p>
+                            </td>
+                        </tr>
+                        {{/each}}
+
+
+                        <tr class="tabletitle">
+                            <td></td>
+                            <td class="Rate">
+                                <h2>Tổng cộng</h2>
+                            </td>
+                            <td class="payment">
+                                <h2>{{ConvertToVND this.total}}</h2>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <div class="d-flex justify-content-center mt-3 mb-3">
+                        <img id="qr-order" src="" alt="">
+
+                    </div>
+                </div>
+                <!--End Table-->
+
+                <div id="legalcopy">
+                    <p class="legal"><strong>Cám ơn Quý khách. Hẹn gặp lại!</strong> 
+                    </p>
+                </div>
+
+            </div>
+            <!--End InvoiceBot-->
+        </div>
+        
+    </div>
+
+
+
+    <script src="/script/shoppingCartScript.js"></script>
+    <script src="/script/globalScript.js"></script>
+</body>
+
+{{!--
+
+</html> --}}

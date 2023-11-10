@@ -1,0 +1,19 @@
+.cart-header{
+    background-color: #DAE5FC;
+}
+#payment{
+    /* color: #40ea92; */
+    background-color: #40ea92;
+}
+#continue{
+    background-color: #DAE5FC;
+
+}
+.payment-class{
+    float: right;
+    /* margin-right: 2.3rem; */
+
+}
+.view-receipt{
+    margin-right: 12.7rem;
+}

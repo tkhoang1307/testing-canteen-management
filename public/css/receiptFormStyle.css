@@ -1,0 +1,147 @@
+#invoice-POS {
+    box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+    padding: 2mm;
+    margin: 0 auto;
+    width: 17rem;
+    background: #FFF;
+    margin-top: 10rem;
+    border-radius: 1%;
+}
+.container-pos{
+    overflow-y: scroll;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
+}
+/* ::selection {
+    background: #f31544;
+    color: #FFF;
+}
+
+::moz-selection {
+    background: #f31544;
+    color: #FFF;
+} */
+
+h1 {
+    font-size: 1.5em;
+    color: #222;
+}
+
+h2 {
+    font-size: 1.3em;
+    /* margin: 0; */
+}
+
+h3 {
+    font-size: 1.2em;
+    font-weight: 300;
+    line-height: 2em;
+}
+
+p {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.2em;
+}
+
+#top,
+#mid,
+#bot {
+    /* Targets all id with 'col-' */
+    border-bottom: 1px solid #EEE;
+}
+
+#top {
+    /* min-height: 100px; */
+    text-align: center;
+    /* margin-top: 1rem; */
+}
+
+
+
+/* #top .logo {
+    height: 50px;
+    width: 50px;
+    background: url(https://truyenthongdaiphuc.files.wordpress.com/2015/09/dai_hoc_khoa_hoc_tu_nhien_dhqg-hcm.png) no-repeat;
+    background-size: 50px 50px;
+} */
+#logo{
+    /* height: 50px; */
+    width: 50px;
+}
+
+ 
+
+.info {
+    display: block;
+    /* //float:left; */
+    margin-left: 0;
+    font-size: 0.8rem;
+    text-align: center;
+    /* margin-bottom: 0; */
+    margin-top: 0.6rem;
+}
+
+#contact-info{
+    margin: 0.5rem 0;
+}
+
+.title {
+    float: right;
+}
+
+.title p {
+    text-align: right;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* td{
+    //padding: 5px 0 5px 15px;
+    //border: 1px solid #EEE
+  } */
+.tabletitle {
+    /* //padding: 5px; */
+    /* font-size: .5em !important; */
+    background: #DAE5FC;
+}
+
+.tabletitle h2{
+    /* //padding: 5px; */
+    font-size: .5em !important;
+    background: #DAE5FC;
+}
+
+#qr-order
+{
+    height: 60px;
+}
+
+.service {
+    border-bottom: 1px solid #EEE;
+}
+
+
+
+.itemtext {
+    font-size: 0.6em;
+}
+
+#legalcopy {
+    /* margin-top: 5mm; */
+    font-size: small;
+    font-style: italic;
+}
+.legal{
+    margin: 0.6rem 0;
+}

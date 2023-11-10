@@ -1,0 +1,112 @@
+<body>
+    <link rel="stylesheet" href="css/userProfileStyle.css">
+    <div class="vh-100" style="background-color: #f4f5f7; width:100%;">
+        <h3>{{message}}</h3>
+        <div class="container py-5 h-100">
+            <div id="user-info-panel" class="row d-flex justify-content-center align-items-center h-50">
+                <div class="col col-lg-6 mb-4 mb-lg-0">
+                    <div class="card mb-3" style="border-radius: .5rem;">
+                        <div class="row g-0">
+                            <div class="col-md-4 gradient-custom text-center text-white"
+                                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                                <img src="{{info.img_url}}" alt="Avatar" class="user-avatar" style="width: 100px;" />
+                                <h5 id="userID">{{info.id}}</h5>
+                                <p>{{info.ten_kh}}</p>
+                                <i id="edit-profile-btn" class="fa fa-edit mb-5" style="font-size: 1.5rem;"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body p-4">
+                                   
+                                    <h4>Thông tin cá nhân</h4>
+                                    <hr class="mt-0 mb-4">
+                                    <div class="row pt-1">
+                                        <div class="col-8 mb-3" style="width: fit-content;">
+                                            <h6>Email</h6>
+                                            <p class="text-muted">{{info.email}}</p>
+                                        </div>
+                                        <div class="col-4 mb-3">
+                                            <h6>Số điện thoại</h6>
+                                            <p class="text-muted">{{info.sdt}}</p>
+                                        </div>
+                                    </div>
+                                    <h4>Tài khoản thanh toán</h4>
+                                    <hr class="mt-0 mb-4">
+                                    <div class="row pt-1">
+                                        <div class="col-6 mb-3">
+                                            <h6>Số dư tài khoản</h6>
+                                            <p class="text-muted">{{ConvertToVND info.so_du}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                        <button type="button" class="btn btn-primary my-1"><i
+                                                class="ri-save-line mr-2"></i>Tiếp tục mua hàng</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {{!-- this is edit form --}}
+            <div  id="edit-user-profile-panel" class="container py-5 h-100 hidden">
+                <div class=" row d-flex justify-content-center align-items-center h-50 ">
+                    <div class="col col-lg-6 mb-4 mb-lg-0">
+                        <div class="card mb-3" style="border-radius: .5rem;">
+                            <div class="row g-0">
+                                <div class="col-md-4 gradient-custom text-center text-white"
+                                    style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                                    <img src="{{info.img_url}}" alt="Avatar" class="user-avatar"
+                                        style="width: 100px;" />
+                                    <h5>{{info.id}}</h5>
+                                    <div class="mb-3">
+                                        <label for="formFile" class="input-group-text"
+                                            style="margin-left: 1rem;">Tên</label>
+                                        <input id="name-input-field" class="form-control" type="text"
+                                            value="{{info.ten_kh}}">
+                                    </div>
+
+                                    <button id="update-btn" type="button" class="btn btn-sucess">Cập nhật</button>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body p-4">
+                                         <i class="fa fa-window-close" id="close-edit-panel" aria-hidden="true" style="color:#fa7885;float:right; font-size:larger; margin-top:-1rem;margin-right:-1rem"></i>
+                                        <h4>Thông tin cá nhân</h4>
+                                        <hr class="mt-0 mb-4">
+                                        <div class="row pt-1">
+                                            <div class="col-8 mb-3" style="width: fit-content;">
+
+                                                <div class="mb-3">
+                                                    <label for="formFile" class="input-group-text">Email</label>
+                                                    <input id="email-input-field" class="form-control" type="text" value="{{info.email}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-4 mb-3">
+                                                <div class="mb-3">
+                                                    <label for="formFile" class="input-group-text">SDT</label>
+                                                    <input class="form-control"  id="phone-input-field" type="text" value="{{info.sdt}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h4>Tài khoản thanh toán</h4>
+                                        <hr class="mt-0 mb-4">
+                                        <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                                <h6>Số dư tài khoản</h6>
+                                                <p class="text-muted">{{info.so_du}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="script/userProfileScript.js"></script>
+</body>

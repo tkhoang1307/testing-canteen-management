@@ -1,0 +1,60 @@
+.records-container{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.records-container h3{
+    margin-bottom: 1rem;
+}
+.card-header-custom{
+    display: flex;
+    width: 100%;
+}
+.title-custom{
+    margin-left: 2rem;
+    margin-right:2rem;
+}
+
+/* tr{
+    max-height: 20px;
+} */
+th, td{
+    margin: 0;
+    font-size: 15px;
+}
+
+.table>:not(caption)>*>* {
+    padding: 0 !important;
+}
+/* .table-responsive{
+
+} */
+.add-new-rec{
+    width: fit-content;
+    margin-left: auto ;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* float:right; */
+}
+.add-new-rec .fa-plus{
+ margin-left: 0.3rem;
+}
+
+.receipt-search{
+    max-width: 500px;
+}
+
+.price-column{
+    min-width: 250px;
+}
+.receipt-id-column{
+    /* margin-left: auto; */
+}
+.qr-row{
+    text-align: right;
+}
+.qr-row > img{
+    width:50px;
+    margin-top:5px;
+}

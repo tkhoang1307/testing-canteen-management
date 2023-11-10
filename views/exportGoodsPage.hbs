@@ -1,0 +1,46 @@
+<body>
+
+
+    <link rel="stylesheet" href="css/exportGoodsStyle.css" />
+    <div class="pop-up hidden">
+        <div class="popup-container">
+        <div class="notification">
+            <div class="noti-header">
+                <i class="fas fa-window-close"></i>
+            </div>
+            <div class="noti-content-container">
+                <div class="noti-content">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <h3>{{message}}</h3>
+    <div class="panel-container">
+        <h3>Chuyển hàng đến canteen</h3>
+        <div id="detail-rows">
+            <div class="card-body export-good-main-panel">
+                {{#each list}}
+                <div class="input-group mb-3 input-row" id="row-1">
+                    <span class="input-group-text">Mặt hàng</span>
+                    <input type="text" class="form-control item-id" id="{{this.ma_mat_hang}}" value="{{this.ten_mat_hang}}" disabled>
+                    <span class="input-group-text">Số lượng trong kho</span>
+                    <input type="number" class="form-control current-amount"  value="{{this.so_luong}}" disabled>
+                    
+                    <span class="input-group-text">Số lượng chuyển đi</span>
+                    <input type="number" class="form-control take-amount"  value="" disabled>
+                     <i class="fas fa-edit toggle-the-input"></i>
+                </div>
+                {{/each}}
+            </div>
+            <div class="confirm-btn-div">
+                <button id="confirm-btn" type="button" class="btn btn-success">Xuất hàng</button>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="script/exportGoodsScript.js"></script>
+    <script src="script/globalScript.js"></script>
+</body>

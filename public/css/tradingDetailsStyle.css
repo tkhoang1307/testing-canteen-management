@@ -1,0 +1,47 @@
+.table-container{
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #EDEDED;
+    border-radius: 5px;
+    /* overflow: hidden; */
+    height: fit-content;
+}
+th{
+    color: #475D8F;
+}
+.receipt-search{
+   
+}
+h3{
+    margin-top: 2rem;
+}
+p{
+    margin: 0;
+}
+.search-id-container{
+    max-width: 500px;
+    display: flex;
+    margin-left:49rem;
+    margin:0 auto;
+    margin-bottom: 2rem;
+}
+.main-body-container{
+    /* display: flex;
+    flex-direction: column; */
+    min-width: 600px;
+}
+.infor-container{
+    max-width: 400px;
+    font-size: 15px;
+    margin-left: 28rem;
+}
+.infor-container .table>:not(caption)>*>* {
+    padding: 0;
+    border: none;
+}
+#total-cost{
+    text-align: right;
+}
+td{
+    font-size: 15px;
+}

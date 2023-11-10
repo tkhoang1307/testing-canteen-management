@@ -1,0 +1,184 @@
+<body>
+    {{#if message}}
+    <h3>{{message}}</h3>
+    {{/if}}
+    <link rel="stylesheet" href="css/itemDetailStyle.css">
+    <link rel="stylesheet" href="css/homePageNeutralStyle.css">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 border p-3 main-section bg-white">
+                {{#if item.ma_mon_an}}
+                <div class="row m-0 product-detail" id="{{item.ma_mon_an}}">
+                    <div class="col-lg-4 left-side-product-box pb-3">
+                        <img src="{{item.img_url}}" class="p-3">
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="right-side-pro-detail border p-3 m-0">
+                            <div class="m-0 pl-3 pt-0 pb-3 text-center h2">
+                                CHI TIẾT SẢN PHẨM
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 item-title">
+                                    <p class="m-0 p-0 bold-text name-product">{{item.ten_mon_an}}</p>
+                                    <p class="m-0 p-0 price-pro">{{ConvertToVND item.gia_ban}}</p>
+                                </div>
+
+                                <div class="col-lg-12 pt-2">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <p class="m-0 p-0 bold-text">Còn lại: </p>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <p class="m-0 quantity-pro"> {{item.so_luong}} </p>
+                                        </div>
+                                    </div>
+                                    <hr class="m-0 pt-2 mt-2">
+                                </div>
+                                <div class="col-lg-12 amount-field">
+                                    <p class="bold-text">Số lượng: </p>
+                                    <div class="col-lg-6">
+                                        <input type="number" id="quantity" class="form-control text-center w-100" value="1">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mt-3">
+                                    <div class="row">
+                                        <div class="col-lg-6 pb-2">
+                                            <a  class="btn w-100" id="add-to-cart" style="background-color: #DAE5FC;">Thêm vào
+                                                giỏ hàng</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a id="payment-now" class="btn w-100" style="background-color: #40ea92;">Thanh toán
+                                                ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{else}}
+                <div class="row m-0 product-detail" id="{{item.ma_mat_hang}}">
+                    <div class="col-lg-4 left-side-product-box pb-3">
+                        <img src="{{item.img_url}}" class="p-3">
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="right-side-pro-detail border p-3 m-0">
+                            <div class="m-0 pl-3 pt-0 pb-3 text-center h2">
+                                CHI TIẾT SẢN PHẨM
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 item-title">
+                                    <p class="m-0 p-0 bold-text name-product">{{item.ten_mat_hang}}</p>
+                                    <p class="m-0 p-0 price-pro">{{ConvertToVND item.gia_ban_ra}}</p>
+                                </div>
+                                <div class="col-lg-12 pt-2">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <p class="m-0 p-0 bold-text">Còn lại: </p>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <p class="m-0 quantity-pro"> {{item.so_luong}} </p>
+                                        </div>
+                                    </div>
+                                    <hr class="m-0 pt-2 mt-2">
+                                </div>
+                                <div class="col-lg-12 amount-field">
+                                    <p class="bold-text">Số lượng: </p>
+                                    <div class="col-lg-6">
+                                        <input type="number" id="quantity" class="form-control text-center w-100" value="1">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mt-3">
+                                    <div class="row">
+                                        <div class="col-lg-6 pb-2">
+                                            <a class="btn w-100" id="add-to-cart" style="background-color: #DAE5FC;">Thêm vào
+                                                giỏ hàng</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a id="payment-now" class="btn w-100" id="payment" style="background-color: #40ea92;">Thanh toán
+                                                ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-interval="0">
+                    <!-- Wrapper for carousel items -->
+                    <div class="carousel-inner">
+                        {{#each foodList}}
+                        {{index}}
+                        {{#ifCond (getRemainder @index 3) '==' 0}}
+                        <div class="carousel-item {{#if @first}}active {{/if}}">
+                            <div class="row">
+                                {{#each ../../foodList as |fl|}}
+                                {{index}}
+                                {{#ifCond (getQuotient @index 3) '==' (getQuotient @../index 3)}}
+                                <div class="col-sm-4">
+                                    <div class="thumb-wrapper item-container" id="{{fl.ma_mon_an}}">
+
+                                        <div class="img-box">
+                                            <img src="{{fl.img_url}}" class="img-fluid today-food-img" alt="">
+                                        </div>
+                                        <div class="thumb-content">
+                                            <p class="text-center today-food-name">{{fl.ten_mon_an}}</p>
+                                            <p class="text-center">{{ConvertToVND fl.gia_ban}}</p>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                {{/ifCond}}
+                                {{/each}}
+                            </div>
+                        </div>
+                        {{/ifCond}}
+
+                        {{/each}}
+                    </div>
+                    <!-- Carousel controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
+                        data-bs-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
+                        data-bs-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="pop-up hidden">
+        <div class="popup-container">
+            <div class="notification">
+                <div class="noti-header">
+                    <i class="fas fa-window-close"></i>
+                </div>
+                <div class="noti-content-container">
+                    <div class="noti-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="script/itemSelectScript.js"></script>
+
+    <script src="script/itemDetailScript.js"></script>
+    <script src="script/globalScript.js"></script>
+
+</body>

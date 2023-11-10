@@ -1,0 +1,51 @@
+.form-control{
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.form-control:hover{
+  background-color: #ECF2FF;
+  color: #475D8F;
+  scale: 1;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.09);
+
+}
+.accordion-item{
+    border: none;
+}
+
+.total-column{
+    margin-left: 100px;
+}
+.reciept-status{
+    min-width: 300px;
+}
+.date-and-totalTurnover{
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 0px;
+    width: 650px;
+}
+.time-column{
+    min-width: 420px;
+}
+.date-and-totalTurnover>div{
+    line-height: 45px;
+
+}
+.date-and-totalTurnover>div:first-child{
+    margin-right:40px
+}
+.month-select{
+    width:150px;
+    margin-left:auto;
+    margin-right:10px
+}
+.graph-month-container{
+    display:flex;
+    
+}
+canvas {
+    height: 25rem !important;
+    margin:0px auto;
+}

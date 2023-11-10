@@ -1,0 +1,69 @@
+.user-info-display{
+    border:0px !important;
+    border-radius: 5px; 
+    max-width:100% ;
+    text-align: center;
+    background-color: #C9D7F5 !important;
+
+    font-size: 20px;
+
+}
+
+
+
+.filterable {
+    margin-top: 15px;
+}
+
+.filterable .panel-heading .pull-right {
+    margin-top: -20px;
+}
+
+.filterable .filters input[disabled] {
+    background-color: transparent;
+    border: none;
+    cursor: auto;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+}
+
+.filterable .filters input[disabled]::-webkit-input-placeholder {
+    color: #333;
+}
+
+.filterable .filters input[disabled]::-moz-placeholder {
+    color: #333;
+}
+
+.filterable .filters input[disabled]:-ms-input-placeholder {
+    color: #333;
+}
+
+.btn-container-cell{
+    text-align: right;
+    border: none;
+}
+.update-user-balance-submit{
+    background-color: #475D8F;
+    color:white
+}
+.fa-filter{
+    color: black !important;
+}
+.table>:not(caption)>*>* {
+    padding-left: 0.2rem;
+}
+input{
+    border: none;
+    text-align: center;
+    width: 100%;
+    background-color: #34e5eb2c;
+    border-radius: inherit;
+    color:#475D8F;
+    
+}
+th  input{
+    font-weight: 500 !important;
+  
+}

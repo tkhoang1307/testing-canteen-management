@@ -1,0 +1,99 @@
+{{!-- <div class="input-group mb-3 input-row" id="row-1">
+    <span class="input-group-text">Mặt hàng</span>
+    <select class="form-select category-field" value="">
+        {{#each goodsList}}
+        <option value="{{this.ma_mat_hang}}">{{this.ten_mat_hang}}</option>
+        {{/each}}
+    </select>
+    <span class="input-group-text">Số lượng</span>
+    <input type="number" class="form-control amount-field" id="amount-1" value="" required>
+    <span class="input-group-text">Giá nhập</span>
+    <input type="number" class="form-control price-field" id="price-1" value="" required>
+    <span class="input-group-text ">Ngày SX</span>
+    <input type="date" class="form-control mf-date" id="date-1" value="" required>
+    <i class="fa-solid fa-delete-left" id="delete-btn-1"></i>
+</div>
+<script src="script/addNewItemScript.js"></script> --}}
+
+
+<body>
+    <link rel="stylesheet" href="css/addNewItemStyle.css" />
+    <link rel="stylesheet" href="css/importGoodsStyle.css" />
+    {{#if message}}
+        <h3>{{message}}</h3>
+    {{/if}}
+    <div class="pop-up hidden">
+        <div class="popup-container">
+            <div class="notification">
+                <div class="noti-header">
+                    <i class="fas fa-window-close"></i>
+                </div>
+                <div class="noti-content-container">
+                    <div class="noti-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-container">
+        <h3>Thêm mặt hàng mới</h3>
+
+        <div id="detail-rows">
+            <div class="card-body import-good-main-panel">
+                <div class="swap-panel-container">
+                    <button id="add-good-btn" class="btn btn-primary">Mặt hàng</button>
+                    <button id="add-food-btn" class="btn btn-primary fade-out">Món ăn</button>
+                </div>
+
+                <div class="input-group mb-4 input-row" id="row-1">
+                    <span class="input-group-text">Loại</span>
+                    <select class="form-select " id="category-field-1" value="">
+                        {{#each goodsCategory}}
+                        <option value="{{this.ma_loai_hang}}">{{this.ten_loai_hang}}</option>
+                        {{/each}}
+                    </select>
+                    <span class="input-group-text">Ảnh</span>
+                    <input type="file" class="form-control amount-field" id="img-1" value="" required>
+
+                    <span class="input-group-text">Tên</span>
+                    <input type="text" class="form-control price-field" id="name-1" value="" required>
+
+                    <span class="input-group-text">Tiền lời</span>
+                    <input type="number" class="form-control price-field" id="price-1" value="" required>
+
+                    <span class="input-group-text">Hạn sử dụng</span>
+                    <input type="number" class="form-control price-field" id="life-span" value="" required>
+
+
+                    <div class="">
+                        <button id="confirm-btn-1" type="button" class="btn btn-success">Cập nhật</button>
+                    </div>
+                </div>
+
+
+                <div class="input-group mb-3 input-row hidden" id="row-2">
+                    <span class="input-group-text">Tên</span>
+                    <input type="text" class="form-control price-field" id="name-2" value="" required>
+                    <span class="input-group-text">Ảnh</span>
+                    <input type="file" class="form-control amount-field" id="img-2" value="" required>
+                    <span class="input-group-text">Giá</span>
+                    <input type="number" class="form-control price-field" id="price-2" value="" required>
+
+                    <div class="">
+                        <button id="confirm-btn-2" type="button" class="btn btn-success">Cập nhật</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+    <script src="script/globalScript.js"></script>
+    <script src="script/addNewItemScript.js"></script>
+</body>

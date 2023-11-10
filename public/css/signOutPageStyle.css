@@ -1,0 +1,11 @@
+.sign-out-notification{
+    text-align: center;
+    margin: 5rem;
+}
+.sign-out-notification h3{
+    color: #475D8F;
+}
+
+.home-btn{
+    margin: 3rem auto 0 auto;
+}

@@ -1,0 +1,189 @@
+<body>
+    <link rel="stylesheet" href="css/tradingDetailsStyle.css">
+    <link rel="stylesheet" href="/css/receiptFormStyle.css">
+
+    <div class="container-pos hidden">
+        <div id="invoice-POS">
+
+            <div id="top">
+                <!-- <div class="logo"></div> -->
+                <img id="logo" src="/images/logo-hcmus.png" alt="">
+                <div class="info">
+                    <h2>CĂN TIN HCMUS</h2>
+                </div>
+                <!--End Info-->
+            </div>
+            <!--End InvoiceTop-->
+
+            <div id="mid">
+                <div class="info">
+                    <!-- <h2>Thông tin liên hệ</h2> -->
+                    <p id="contact-info">
+                        Địa chỉ : Khu phố 6, Phường Linh Trung, Quận Thủ Đức, Hồ Chí Minh</br>
+                        Email : cantinHCMUS@edu.com.vn</br>
+                        Điện thoại : 028.3896.7366</br>
+                    </p>
+                </div>
+            </div>
+            <!--End Invoice Mid-->
+            <div class="info">
+                <h2>HÓA ĐƠN BÁN HÀNG</h2>
+                <h3 id="orderID">Mã đơn hàng: {{header.ma_don_hang}}</h3>
+            </div>
+            <div id="bot">
+
+                <div id="table">
+                    <table>
+                        <tr class="tabletitle">
+                            <td class="item">
+                                <h2>Mặt hàng</h2>
+                            </td>
+                            <td class="Hours">
+                                <h2>Số lượng</h2>
+                            </td>
+                            <td class="Rate">
+                                <h2>Thành tiền</h2>
+                            </td>
+                        </tr>
+
+                        {{#each details}}
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">{{this.ten_mat_hang}}</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{this.so_luong}}</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{ConvertToVND this.thanh_tien}}</p>
+                            </td>
+                        </tr>
+                        {{/each}}
+
+
+                        <tr class="tabletitle">
+                            <td></td>
+                            <td class="Rate">
+                                <h2>Tổng cộng</h2>
+                            </td>
+                            <td class="payment">
+                                <h2>{{ConvertToVND (getTotalCostV2 details)}}</h2>
+                            </td>
+                        </tr>
+
+
+
+                    </table>
+                    <div class="d-flex justify-content-center mt-3 mb-3">
+                        <img id="qr-order" src="" alt="">
+
+                    </div>
+                </div>
+                <!--End Table-->
+
+                <div id="legalcopy">
+                    <p class="legal"><strong>Cám ơn Quý khách. Hẹn gặp lại!</strong> 
+                    </p>
+                </div>
+
+            </div>
+            <!--End InvoiceBot-->
+        </div>
+
+    </div>
+
+    <div class="pop-up hidden">
+        <div class="popup-container">
+            <div class="notification">
+                <div class="noti-header">
+                    <i class="fas fa-window-close"></i>
+                </div>
+                <div class="noti-content-container">
+                    <div class="noti-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>{{message}}</h3>
+
+    <div class="main-body-container" style="width: 100%;">
+        <div>
+
+                <h3>Tìm kiếm đơn hàng</h3>
+            </div>
+        <div class="search-id-container">
+            
+            <input type="search" placeholder="Tìm kiếm theo mã" aria-describedby="button-addon1"
+                class="form-control border-0 bg-light search-field" id="id-order-search-field"
+                value="{{header.ma_don_hang}}">
+            <div class="input-group-append">
+                <button id="search-id-btn" type="button" class="btn btn-link text-primary search-items"><i
+                        class="fa fa-search"></i></button>
+            </div>
+        </div>
+
+        <div class="infor-container" id="{{header.ma_don_hang}}">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Mã khách hàng</td>
+                        <td>{{header.ma_khach_hang}}</td>
+                    </tr>
+                    <tr>
+                        <td>Tạo lúc</td>
+                        <td>{{customDate header.ngay_mua}}</td>
+                    </tr>
+                    <tr>
+                        <td>Mã đơn hàng</td>
+                        <td>{{header.ma_don_hang}}</td>
+                    </tr>
+                    <tr>
+                        <td>Trạng thái</td>
+                        <td>{{header.trang_thai}}</td>
+                        <td colspan="2"> {{#ifCond header.trang_thai '==' 'CHUA NHAN HOA DON'}}
+                            <button class="btn btn-primary" id="print-bill">In hoá đơn</button>{{/ifCond}}
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>Chi tiết</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Sản phẩm</th>
+                        <th scope="col">Đơn giá</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each details}}
+                    <tr>
+                        <td>{{ten_mat_hang}}</td>
+                        <td>{{ConvertToVND gia_ban}}</td>
+                        <td>{{so_luong}}</td>
+                        <td>{{ConvertToVND thanh_tien}}</td>
+                    </tr>
+                    {{/each}}
+
+                    <tr>
+                        <td colspan="3" id="total-cost">Tổng tiền</td>
+                        <td>{{ConvertToVND (getTotalCostV2 details)}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <script src="script/tradingDetailsScript.js"></script>
+    <script src="script/globalScript.js"></script>
+
+
+</body>

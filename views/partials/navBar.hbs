@@ -1,0 +1,190 @@
+<body>
+    <link rel="stylesheet" href="css/navBarStyle.css">
+    <div class="navbar-container">
+        <nav class="navbar navbar-secondary navbar-color ">
+            <div class="container-fluid ">
+                <div class="meunu">
+                    <div id="mySidenav" class="sidenav">
+                        <div class="close-btn-container">
+                            <i id="close-nav-btn" class="fas fa-bars"></i>
+                        </div>
+                        {{#ifCond (getJSONLen user) '==' 3}}
+                        <a href="/today-menu">Chỉnh sửa thực đơn</a>
+                        <a href="/trading-details">In hoá đơn</a>
+                        <a href="/export-goods-history">Lịch sử nhập hàng canteen</a>
+                        <a href="/import-goods-history">Lịch sử nhập kho</a>
+                        <a href="/export-goods">Nhập hàng canteen</a>
+
+                        <a href="/import-goods">Nhập hàng kho</a>
+                        <a href="/in-store">Quản lí hàng trong kho</a>
+                        <a href="/in-stock">Quản lí hàng trong canteen</a>
+                        <a href="/manage-users">Quản lí khách hàng</a>
+                        <a href="/food-stock">Quản lí kho thức ăn</a>
+                        <a href="/manage-category">Quản lí theo từng loại</a>
+                        <a href="/create-new-bill">Tạo đơn hàng mới</a>
+                        <a href="/add-new-item">Thêm mặt hàng mới</a>
+                        <a href="/statistic">Thống kê doanh số</a>
+                        <a href="/tradings-history">Xem lịch sử giao dịch</a>
+   
+   
+
+                        {{/ifCond}}
+
+                        {{#ifCond (getJSONLen user) '!=' 3}}
+                        <a href="/search-goods?category=TYNU">Đồ uống</a>
+                        <a href="/search-goods?category=TYDAV">Đồ ăn vặt</a>
+                        <a href="/search-goods?category=TYDCHT">Dụng cụ học tập</a>
+                        <a href="/search-goods?category=DAC">Đồ ăn chính</a>
+                        {{/ifCond}}
+
+                    </div>
+                    <button class="nav-menu">
+                        <i id="menu-icon" class="fas fa-bars"></i>
+                    </button>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-2">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <div class="d-flex" style="flex-wrap: nowrap; align-items:center">
+                                    <div class="nav-item" style="margin-right: 1em;">
+                                        <a href="/">
+                                            <img src="./images/restaurant.png" alt="" style="width: 40px; height: 40px">
+                                        </a>
+                                    </div>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/"><strong
+                                                style="color: #475D8F; white-space: nowrap;">CĂN TIN HCMUS</strong></a>
+
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col-6 text-center">
+                            <div class="row height d-flex justify-content-center align-items-center">
+                                <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-1">
+                                    {{#ifCond (getJSONLen user) '!=' 3}}
+                                    <div class="input-group">
+                                        <input type="search"
+                                            placeholder="Tìm kiếm thức ăn, nước uống, văn phòng phẩm,..."
+                                            aria-describedby="button-addon1"
+                                            class="rounded rounded-pill form-control border-0 bg-light search-field"
+                                            id="search-key">
+                                        <div class="input-group-append">
+                                            <button id="search-product-btn" type="submit"
+                                                class="btn btn-link text-primary search-items"><i
+                                                    class="fa fa-search"></i></button>
+                                        </div>
+
+                                    </div>
+                                    {{/ifCond}}
+
+                                    {{#ifCond (getJSONLen user) '==' 3}}
+                                    <div class="input-group">
+                                        <input type="search" placeholder="Tìm kiếm đơn hàng,..."
+                                            aria-describedby="button-addon1"
+                                            class="rounded rounded-pill form-control border-0 bg-light search-field"
+                                            id="search-id-key">
+                                        <div class="input-group-append">
+                                            <button id="search-receipt-btn" type="submit"
+                                                class="btn btn-link text-primary search-items"><i
+                                                    class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                    {{/ifCond}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-3 justify-content-center align-items-center">
+                            <div class="d-flex align-items-end justify-content-end h-100">
+
+                                {{#ifCond (getJSONLen user) '>' 3}}
+                                <div>
+                                   <p style="margin-bottom: 0.6rem; font-size:1.3rem">
+                                        Xin chào, {{../user.username}}
+                                   </p> 
+                                </div>
+                                <div class="col-1 text-end">
+                                    <div class="dropdown">
+                                        <button id="user-avatar-btn" class="btn" type="button" data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                            <img src="{{../user.img_url}}" id="user-avatar-img" alt="Avatar"
+                                                style="width: 2rem; height: 2rem;" />
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-lg-end">
+                                            <li><a href="/user-profile"><button id="user-profile" class="dropdown-item"
+                                                        type="button">Trang cá nhân</button></li></a>
+                                            <li><button class="dropdown-item" id="shopping-cart" type="button">Giỏ
+                                                    hàng</button></li>
+                                            <li><button id="user-balance" class="dropdown-item" type="button"></button>
+                                            </li>
+
+                                            <li><button class="dropdown-item" id="recharge-btn" type="button">Nạp tiền
+                                                    tài khoản</button>
+                                            </li>
+
+                                            <li><a href="/customer-cart-history"><button class="dropdown-item" id="cart-history-btn" type="button">Lịch
+                                                    sử mua hàng</button></a>
+                                            </li>
+                                            <li><button class="dropdown-item" type="button" id="sign-out-btn">Đăng xuất
+                                                    <i class="fa fa-sign-out" style="margin-left: 0.5rem;"></i></button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                {{/ifCond}}
+
+                                {{#ifCond (getJSONLen user) '==' 3}}
+                                <div class="col-1 text-end">
+                                    <div class="dropdown">
+                                        <button id="user-avatar-btn" class="btn" type="button" data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                            <img src="{{../user.img_url}}" id="user-avatar-img" alt="Avatar"
+                                                style="width: 2rem; height: 2rem;" />
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-lg-end">
+                                            <li><a href="/daily-turnover"><button id="user-profile"
+                                                        class="dropdown-item" type="button">Doanh thu hôm nay</button>
+                                            </li></a>
+                                            <li><a href="/monthly-turnover">
+                                                    <button class="dropdown-item" id="shopping-cart" type="button">Doanh
+                                                        thu
+                                                        tháng</button></a></li>
+
+                                            </li>
+
+                                            <li><button class="dropdown-item" type="button" id="sign-out-btn">Đăng xuất
+                                                    <i class="fa fa-sign-out" style="margin-left: 0.5rem;"></i></button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                {{/ifCond}}
+
+                                {{#ifCond (getJSONLen user) '==' 0}}
+                                <button type="button" class="btn me-3 sign-up-btn h-100">
+                                    <i class="fa fa-user-plus" style="padding-right: 0.5rem;"></i>Đăng kí
+                                </button>
+                                <button type="button" class="btn me-3 sign-in-btn h-100">
+                                    <i class="fa fa-arrow-right" style="padding-right: 0.5rem;"></i>Đăng nhập
+                                </button>
+                                {{/ifCond}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+    {{!-- This is pop up place --}}
+    <script src="script/navbarScript.js"></script>
+</body>
+
+</html>

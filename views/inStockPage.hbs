@@ -1,0 +1,116 @@
+{{!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style-admin.css">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/script-admin.js"></script>
+    <title>Warehouse</title>
+</head> --}}
+
+<body>
+    <h3>{{message}}</h3>
+    <link rel="stylesheet" href="css/inStockPageStyle.css">
+    <div class="pop-up  hidden">
+        <div class="popup-container">
+            <div class="notification">
+                <div class="noti-header">
+                    <i class="fas fa-window-close"></i>
+                </div>
+                <div class="noti-content-container d-flex flex-column">
+                    <div class="noti-content">
+                        Xác nhận xóa
+                    </div>
+                    <button class="btn btn-success confirm-delete hidden">ok</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="panel panel-primary filterable">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Hiện có trong canteen</h3>
+
+                </div>
+
+                <div class="confirm-btn-div">
+                    <button id="show-details-btn" type="button" class="btn btn-success">Chi tiết</button>
+                    <button type="button" class="btn btn-sm px-3 change-price" line-id="{{this.id}}"
+                        data-ripple-color="dark" style="top: 0;">
+                        <i class="fa fa-edit"></i>
+                    </button>
+                </div>
+                <div>
+
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <p class="user-info-display">Sản phẩm</p>
+                            </th>
+                            <th>
+                                <p class="user-info-display">Số lượng</p>
+                            </th>
+                            <th>
+                                <p class="user-info-display">Giá nhập</p>
+                            </th>
+                            <th>
+                                <p class="user-info-display">Giá bán</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each product}}
+                        <tr proId="{{this.ma_mat_hang}}">
+                            <td>
+                                <p class="user-info-display">{{this.ten_mat_hang}}</p>
+                            </td>
+                            <td>
+                                <p class="user-info-display">{{this.so_luong}}</p>
+                            </td>
+                            <td>
+                                <p class="user-info-display">{{ConvertToVND this.gia}}</p>
+                            </td>
+                            <td>
+                                <input class="user-info-display input-price" value="{{ConvertToVND this.gia_ban_ra}}"
+                                    disabled line-id="{{this.ma_mat_hang}}"></input>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+            </div>
+            <nav class="pagination-div" aria-label="Page navigation example">
+                <ul class="pagination">
+                    {{#times totalPage}}
+                    <li class="page-item page-number {{#ifCond  ../currentPage  '==' this }}active{{/ifCond}}">
+                        <a class="page-link" href="?page={{this}}">{{this}}</a>
+                    </li>
+                    {{/times}}
+                </ul>
+            </nav>
+        </div>
+
+        <div class="cart-footer text-center">
+            <button type="button" class="btn btn-info my-1 update-user-balance-submit hidden"><i
+                    class="ri-save-line mr-2"></i>Cập nhật</button>
+        </div>
+    </div>
+    <script src="script/globalScript.js"></script>
+    <script src="script/inStockScript.js"></script>
+</body>
+
+</html>

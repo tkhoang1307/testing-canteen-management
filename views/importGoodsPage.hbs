@@ -1,0 +1,56 @@
+<body>
+
+    <link rel="stylesheet" href="css/importGoodsStyle.css" />
+    <div class="pop-up hidden">
+        <div class="popup-container">
+            <div class="notification">
+                <div class="noti-header">
+                    <i class="fas fa-window-close"></i>
+                </div>
+                <div class="noti-content-container">
+                    <div class="noti-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<h3>{{message}}</h3>
+    <div class="panel-container">
+        <h3>Đơn hàng nhập kho</h3>
+
+        <div id="detail-rows">
+            <div class="card-body import-good-main-panel">
+                <div id="add-btn">
+                    <i class="fa-solid fa-plus add-new-line"></i>
+                </div>
+
+                <div class="input-group mb-3 input-row" id="row-1">
+                    <span class="input-group-text">Mặt hàng</span>
+                    <select class="form-select category-field" value="">
+                        {{#each goodsList}}
+                        <option value="{{this.ma_mat_hang}}">{{this.ten_mat_hang}}</option>
+                        {{/each}}
+                    </select>
+                    <span class="input-group-text">Số lượng</span>
+                    <input type="number" class="form-control amount-field" id="amount-1" value="" required>
+                    <span class="input-group-text">Giá nhập</span>
+                    <input type="number" class="form-control price-field" id="price-1" value="" required>
+                    <span class="input-group-text ">Ngày SX</span>
+                    <input type="date" class="form-control mf-date" id="date-1" value="" required>
+                    <i class="fa-solid fa-delete-left" id="delete-btn-1"></i>
+                </div>
+
+            </div>
+            <div class="confirm-btn-div">
+
+
+                <button id="confirm-btn" type="button" class="btn btn-success">Nhập hàng</button>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="script/importGoodsScript.js"></script>
+    <script src="script/globalScript.js"></script>
+</body>

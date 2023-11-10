@@ -1,0 +1,93 @@
+{{!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style-admin.css">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/script-admin.js"></script>
+    <title>Warehouse</title>
+</head> --}}
+
+<body>
+    <h3>{{message}}</h3>
+    <link rel="stylesheet" href="css/inStockFoodPageStyle.css">
+    <div class="pop-up  hidden">
+        <div class="popup-container">
+            <div class="notification">
+                <div class="noti-header">
+                    <i class="fas fa-window-close"></i>
+                </div>
+                <div class="noti-content-container d-flex flex-column">
+                    <div class="noti-content">
+                        Xác nhận xóa
+                    </div>
+                    <button class="btn btn-success confirm-delete hidden">ok</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="panel panel-primary filterable">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Hiện có trong canteen</h3>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <p class="user-info-display">Sản phẩm</p>
+                            </th>
+                            <th>
+                                <p class="user-info-display">Số lượng</p>
+                            </th>
+                            <th>
+                                <p class="user-info-display">Đơn giá</p>
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each product}}
+                        <tr proId="{{this.ma_mat_hang}}">
+                            <td>
+                                <p class="user-info-display">{{this.ten_mon_an}}</p>
+                            </td>
+                            <td>
+                                <p class="user-info-display">{{this.so_luong}}</p>
+                            </td>
+                            <td>
+                                <p class="user-info-display">{{ConvertToVND this.gia_ban}}</p>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+            </div>
+            <nav class="pagination-div" aria-label="Page navigation example">
+                <ul class="pagination">
+                    {{#times totalPage}}
+                    <li class="page-item page-number {{#ifCond  ../currentPage  '==' this }}active{{/ifCond}}">
+                        <a class="page-link" href="?page={{this}}">{{this}}</a>
+                    </li>
+                    {{/times}}
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <script src="script/globalScript.js"></script>
+    <script src="script/inStockFoodScript.js"></script>
+</body>
+
+</html>

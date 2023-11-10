@@ -1,0 +1,66 @@
+{{!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style-admin.css">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <title>Update Menu</title>
+</head> --}}
+<body>
+    <link rel="stylesheet" href="css/todayMenuPageStyle.css">
+    <h3>{{message}}</h3>
+    <div class="pop-up hidden">
+        <div class="popup-container">
+        <div class="notification">
+            <div class="noti-header">
+                <i class="fas fa-window-close"></i>
+            </div>
+            <div class="noti-content-container">
+                <div class="noti-content">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    
+    <div class="panel-container">
+        <h3>Thực đơn hôm nay</h3>
+
+        <div id="detail-rows">
+            <div class="card-body import-good-main-panel">
+                <div id="add-btn">
+                    <i class="fa-solid fa-plus add-new-line"></i>
+                </div>
+                {{#each todayMenu}}
+                <div class="input-group mb-3 input-row" >
+                    <span class="input-group-text">Mặt hàng</span>
+                    <select class="form-select category-field" select curr-value="{{this.ma_mon_an}}">
+                        {{#each ../foodList}}
+                        <option value="{{this.ma_mon_an}}"  class="option-val">{{this.ten_mon_an}}</option>
+                        {{/each}}
+                    </select>
+                    <span class="input-group-text">Số lượng</span>
+                    <input type="number" class="form-control amount-field" id="amount-1" value="{{this.so_luong}}" required>
+                 
+                    <i class="fa-solid fa-delete-left" id="delete-btn"></i>
+                </div>
+                {{/each}}
+            </div>
+            <div class="confirm-btn-div">
+
+               
+                <button id="today-menu-confirm-btn" type="button" class="btn btn-success">Cập nhật</button>
+            </div>
+        </div>
+    <script src="script/globalScript.js"></script>
+    <script src="script/todayMenuScript.js"></script>
+    </div>
+</body>
+</html>

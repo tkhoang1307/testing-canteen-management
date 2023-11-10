@@ -1,0 +1,13 @@
+module.exports=(req,res,next)=>{
+    try{
+        if(req.session&&req.session.role=='admin'){
+            next()
+        }
+        else{
+            res.redirect('/');
+        }
+    }
+    catch(err){
+        console.log(err);
+    }
+}

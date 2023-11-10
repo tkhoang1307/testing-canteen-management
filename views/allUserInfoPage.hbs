@@ -1,0 +1,120 @@
+{{!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style-admin.css">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/script-admin.js"></script>
+    <title>List User</title>
+</head> --}}
+
+<body>
+    <script src="script/allUserInfoScript.js"></script>
+    {{#if message}}
+    <h3>{{message}}</h3>
+    {{/if}}
+    <link rel="stylesheet" href="css/allUserInfoPageStyle.css">
+    <div class="pop-up hidden">
+        <div class="popup-container">
+            <div class="notification">
+                <div class="noti-header">
+                    <i class="fas fa-window-close"></i>
+                </div>
+                <div class="noti-content-container">
+                    <div class="noti-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="panel panel-primary filterable">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Danh sách khách hàng</h3>
+                    <div class="pull-right">
+                        <button class="btn btn-default btn-xs btn-filter"><i class="fa fa-filter"></i> Filter</button>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr class="filters">
+                            <th><input type="text" class="form-control user-info-display font"
+                                    placeholder="ID Khách hàng" disabled></th>
+                            <th><input type="text" class="form-control user-info-display" placeholder="Số dư tài khoản"
+                                    disabled></th>
+                            <th><input type="text" class="form-control user-info-display" placeholder="Họ tên" disabled>
+                            </th>
+                            <th><input type="text" class="form-control user-info-display" placeholder="Số điện thoại"
+                                    disabled></th>
+                            <th><input type="text" class="form-control user-info-display" placeholder="Email" disabled>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each users}}
+                        <tr>
+                            <td class="btn-container-cell"></td>
+                            <td class="btn-container-cell">
+                                <button type="button" class="btn btn-sm px-3 change-user-balance-btn"
+                                    line-id="{{this.id}}" data-ripple-color="dark" style="top: 0;">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="user-info-display">{{this.id}}</p>
+                            </td>
+                            <td class="">
+                                <p class="user-info-display">
+                                    <input type="number " value="{{ConvertToVND this.so_du}}" line-id="{{this.id}}"
+                                        class="user-info-display user-balance" disabled required>
+                                </p>
+                            </td>
+                            <td>
+                                <p class="user-info-display">{{this.ten_kh}}</p>
+                            </td>
+                            <td>
+                                <p class="user-info-display">{{this.ten_kh}}</p>
+                            </td>
+                            <td>
+                                <p class="user-info-display">{{this.email}}</p>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <nav class="pagination-div" aria-label="Page navigation example">
+            <ul class="pagination">
+                {{#times totalPage}}
+                <li class="page-item page-number {{#ifCond  ../currentPage  '==' this }}active{{/ifCond}}">
+                    <a class="page-link" href="?page={{this}}">{{this}}</a>
+                </li>
+                {{/times}}
+            </ul>
+        </nav>
+        <div class="cart-footer text-center">
+            <button type="button" class="btn btn-info my-1 update-user-balance-submit"><i
+                    class="ri-save-line mr-2"></i>Update</button>
+        </div>
+    </div>
+    <script src="script/globalScript.js"></script>
+
+</body>
+
+</html>

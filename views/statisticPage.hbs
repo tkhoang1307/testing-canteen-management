@@ -1,0 +1,153 @@
+{{!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style-admin.css">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/script-admin.js"></script>
+    <title>Warehouse</title>
+</head> --}}
+
+<body>
+    <h3>{{message}}</h3>
+    <link rel="stylesheet" href="css/inStockPageStyle.css">
+    <link rel="stylesheet" href="css/monthlyTurnoverStyle.css">
+    <div class="pop-up  hidden">
+        <div class="popup-container">
+            <div class="notification">
+                <div class="noti-header">
+                    <i class="fas fa-window-close"></i>
+                </div>
+                <div class="noti-content-container d-flex flex-column">
+                    <div class="noti-content">
+                        Xác nhận xóa
+                    </div>
+                    <button class="btn btn-success confirm-delete hidden">ok</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="panel panel-primary filterable">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Thống kê</h3>
+
+                </div>
+
+                <div class="graph-month-container">
+                    <select class="form-select month-select" aria-label="Default select example" value="">
+                        <option selected>Chọn tháng</option>
+                        <option value="1">Tháng 1</option>
+                        <option value="2">Tháng 2</option>
+                        <option value="3">Tháng 3</option>
+                        <option value="4">Tháng 4</option>
+                        <option value="5">Tháng 5</option>
+                        <option value="6">Tháng 6</option>
+                        <option value="7">Tháng 7</option>
+                        <option value="8">Tháng 8</option>
+                        <option value="9">Tháng 9</option>
+                        <option value="10">Tháng 10</option>
+                        <option value="11">Tháng 11</option>
+                        <option value="12">Tháng 12</option>
+                    </select>
+                    <div>
+                        <button class="btn btn-primary graph-btn">
+                            Biểu đồ
+                        </button>
+                    </div>
+                </div>
+                <div>
+
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <p class="user-info-display">Sản phẩm</p>
+                            </th>
+                            <th>
+                                <p class="user-info-display">Số lượng bán ra</p>
+                            </th>
+                            <th>
+                                <p class="user-info-display">Thành tiền</p>
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each product}}
+                        <tr proId="{{this.ma_mat_hang}}">
+                            <td>
+                                <p class="user-info-display">{{this.ten_mat_hang}}</p>
+                            </td>
+                            <td>
+                                <p class="user-info-display">{{this.so_luong}}</p>
+                            </td>
+                            <td>
+                                <p class="user-info-display">{{ConvertToVND this.thanh_tien}}</p>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+            </div>
+            <nav class="pagination-div" aria-label="Page navigation example">
+                <ul class="pagination">
+                    {{#times totalPage}}
+                    <li class="page-item page-number {{#ifCond  ../currentPage  '==' this }}active{{/ifCond}}">
+                        <a class="page-link" href="?page={{this}}">{{this}}</a>
+                    </li>
+                    {{/times}}
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="pop-up-graph visibility-hidden">
+        <div class="graph-container">
+            <div class="graph">
+                <div class="noti-header ">
+                    <i class="fas fa-window-close graph-close"></i>
+                </div>
+                <div class="graph-content">
+                    <canvas id="pie-chart"></canvas>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        new Chart(document.getElementById("pie-chart"), {
+            type: 'pie',
+            data: {
+                labels: [{{{productList}}}],
+                datasets: [{
+                    label: "Số lượng",
+                    data: [{{number}}]
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Thống kê doanh số bán ra'
+                }
+            }
+        });
+    </script>
+    <script src="script/globalScript.js"></script>
+    <script src="script/inStockScript.js"></script>
+    <script src="script/statisticScript.js"></script>
+</body>
+
+</html>

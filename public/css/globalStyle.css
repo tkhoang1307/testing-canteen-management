@@ -1,0 +1,157 @@
+*{
+    box-sizing: border-box;
+}
+.btn-primary{
+    background-color: #475D8F !important; 
+}
+body{
+    font-size: 20px;
+}
+a{
+    text-decoration: none;
+}
+
+h3{
+    color: #475D8F;
+    text-align: center;
+}
+.show{
+    display: block !important;
+
+}
+.hidden{
+    display: none !important;
+
+}
+.super-container{
+    min-height: calc(100vh - 250px);
+    background-color: #F7F8FA !important;
+}
+
+.popup-container{
+    display: flex;
+    margin: 0 auto;
+    width: 25rem;
+    height: 15rem;
+    position: relative;
+    animation: modalHideIn ease 0.35s;
+
+}
+.notification{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 25rem;
+    height: 15rem;
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.181);
+    margin-top: 7rem;
+    overflow: hidden;
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
+    /* margin: 30vh auto 0 auto; */
+}
+.graph-container{
+
+    margin: 0 auto;
+    width: 70rem;
+    height:30rem;
+    position: relative;
+    animation: modalHideIn ease 0.35s;
+}
+.graph{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 70rem;
+    height: 30rem;
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.181);
+    margin-top: 7rem;
+    overflow: hidden;
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+
+.fa-window-close{
+    margin-right: auto ;
+    color: #ff3333;
+    margin: 5px;
+    border-radius: 50%;
+    font-size: 150%;
+    cursor: pointer;
+}
+.noti-header{
+    height: fit-content;
+    display: flex;
+    justify-content: flex-end;
+    background-color: aliceblue;
+}
+.noti-content{
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#475D8F;
+    text-align: center;
+    margin: auto 0;
+}
+.fa-check{
+    margin-left: 2rem;
+    color: #0e532c;
+}
+
+.noti-content-container{
+    display: flex;
+    align-items: center;
+    height: calc(100% - 40px);
+    justify-content: center;
+}
+
+.pop-up,.pop-up-graph
+{
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
+}
+
+
+.visibility-hidden{
+    visibility: hidden;
+}
+
+@keyframes modalHideIn {
+    from{
+        transform: translateY(-140px);
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pagination-div{
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.card-header-custom{
+    display: flex;
+    width: 100%;
+}
+.price-column{
+    min-width: 250px;
+}
+.receipt-id-column{
+    min-width: 180px;
+}
+.time-column{
+    min-width: 180px;
+}
+.accordion-button{
+    font-weight:normal;
+}
+
+
+

@@ -1,0 +1,321 @@
+{{!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style-admin.css">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <title>Homepage Admin</title>
+</head> --}}
+
+<body>
+    <link rel="stylesheet" href="css/homeAdminPageStyle.css">
+    {{#if message}}
+    <h3>{{message}}</h3>
+    {{/if}}
+    <div class="container d-flex">
+        <div class="row admin-menu-container">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                <a href="trading-details" style="text-decoration: none;">
+                    <div class="wrap">
+                        <div class="col-sm-3">
+                            <div class="ico-wrap">
+                                <img src="../images/printer.png" alt="" class="mbr-iconfont">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 vcenter">
+                            <div class="text-wrap vcenter">
+                                <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                    <span>In hóa đơn</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                <a href="/create-new-bill" style="text-decoration: none;">
+                    <div class="wrap">
+                        <div class="col-sm-3">
+                            <div class="ico-wrap">
+                                <img src="../images/invoice.png" alt="" class="mbr-iconfont">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 vcenter">
+                            <div class="text-wrap vcenter">
+                                <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                    <span>Tạo hóa đơn</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                <a href="/import-goods" style="text-decoration: none;">
+                    <div class="wrap">
+                        <div class="col-sm-3">
+                            <div class="ico-wrap">
+                                <img src="../images/parcel.png" alt="" class="mbr-iconfont">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 vcenter">
+                            <div class="text-wrap vcenter">
+                                <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                    <span>Nhập hàng kho</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                <a href="/import-goods-history" style="text-decoration: none;">
+                    <div class="wrap">
+                        <div class="col-sm-3">
+                            <div class="ico-wrap">
+                                <img src="../images/recent.png" alt="" class="mbr-iconfont">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 vcenter">
+                            <div class="text-wrap vcenter">
+                                <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                    <span>Lịch sử nhập kho</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                <a href="/export-goods" style="text-decoration: none;">
+                    <div class="wrap">
+                        <div class="col-sm-3">
+                            <div class="ico-wrap">
+                                <img src="../images/export.png" alt="" class="mbr-iconfont">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 vcenter">
+                            <div class="text-wrap vcenter">
+                                <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                    <span>Nhập hàng canteen</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                <a href="/export-goods-history" style="text-decoration: none;">
+                    <div class="wrap">
+                        <div class="col-sm-3">
+                            <div class="ico-wrap">
+                                <img src="../images/recent.png" alt="" class="mbr-iconfont">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 vcenter">
+                            <div class="text-wrap vcenter">
+                                <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                    <span>Lịch sử nhập hàng canteen</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                <a href="/in-store" style="text-decoration: none;">
+                    <div class="wrap">
+                        <div class="col-sm-3">
+                            <div class="ico-wrap">
+                                <img src="../images/wholesale.png" alt="" class="mbr-iconfont">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 vcenter">
+                            <div class="text-wrap vcenter">
+                                <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                    <span>Quản lý hàng trong kho</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                <a href="/in-stock" style="text-decoration: none;">
+                    <div class="wrap">
+                        <div class="col-sm-3">
+                            <div class="ico-wrap">
+                                <img src="../images/restaurantHistory.png" alt="" class="mbr-iconfont">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 vcenter">
+                            <div class="text-wrap vcenter">
+                                <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                    <span>Quản lý hàng trong canteen</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                <a href="/food-stock" style="text-decoration: none;">
+                    <div class="wrap">
+                        <div class="col-sm-3">
+                            <div class="ico-wrap">
+                                <img src="../images/freezer.png" alt="" class="mbr-iconfont">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 vcenter">
+                            <div class="text-wrap vcenter">
+                                <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                    <span>Quản lý kho thức ăn</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                <a href="/manage-category" style="text-decoration: none;">
+                    <div class="wrap">
+                        <div class="col-sm-3">
+                            <div class="ico-wrap">
+                                <img src="../images/apps.png" alt="" class="mbr-iconfont">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 vcenter">
+                            <div class="text-wrap vcenter">
+                                <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                    <span>Quản lý hàng theo từng loại</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                <a href="/manage-users" style="text-decoration: none;">
+                    <div class="wrap">
+                        <div class="col-sm-3">
+                            <div class="ico-wrap">
+                                <img src="../images/group.png" alt="" class="mbr-iconfont">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 vcenter">
+                            <div class="text-wrap vcenter">
+                                <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                    <span>Quản lý khách hàng</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                <a href="/today-menu" style="text-decoration: none;">
+                    <div class="wrap">
+                        <div class="col-sm-3">
+                            <div class="ico-wrap">
+                                <img src="../images/edit.png" alt="" class="mbr-iconfont">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 vcenter">
+                            <div class="text-wrap vcenter">
+                                <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                    <span>Chỉnh sửa thực đơn hôm nay</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                <a href="/tradings-history" style="text-decoration: none;">
+                    <div class="wrap">
+                        <div class="col-sm-3">
+                            <div class="ico-wrap">
+                                <img src="../images/transaction.png" alt="" class="mbr-iconfont">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 vcenter">
+                            <div class="text-wrap vcenter">
+                                <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                    <span>Xem lịch sử giao dịch</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                <a href="statistic" style="text-decoration: none;">
+                    <div class="wrap">
+                        <div class="col-sm-3">
+                            <div class="ico-wrap">
+                                <img src="../images/bar-chart.png" alt="" class="mbr-iconfont">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 vcenter">
+                            <div class="text-wrap vcenter">
+                                <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                    <span>Thống kê doanh số</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                <a href="add-new-item" style="text-decoration: none;">
+                    <div class="wrap">
+                        <div class="col-sm-3">
+                            <div class="ico-wrap">
+                                <img src="../images/add.png" alt="" class="mbr-iconfont">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 vcenter">
+                            <div class="text-wrap vcenter">
+                                <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                    <span>Thêm mặt hàng mới</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>

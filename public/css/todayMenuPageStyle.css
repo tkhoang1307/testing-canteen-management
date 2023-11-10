@@ -1,0 +1,55 @@
+.panel-container{
+    max-width: 1200px;
+    margin: 2rem auto 0 auto;
+}
+h3{
+    text-align: center;
+    margin-top: 2rem ;
+    color: #475D8F;
+}
+.input-group-text{
+    background-color: #475D8F;
+    color:white
+}
+.input-row{
+    display: flex;
+    align-items: center;
+    border: 2px rgba(0, 0, 0, 0.045) ;
+}
+#add-btn{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.fa-plus{
+    /* float: right; */
+    margin-bottom: 1rem;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: aliceblue;
+    border-radius: 5px;
+    padding: 5px;
+}
+.fa-delete-left{
+    cursor: pointer;
+    padding-left: 1rem;
+    font-size: 25px;
+}
+
+.confirm-btn-div{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3rem;
+    margin-right: 2.5rem;
+}
+
+.red-border{
+    outline: 2px solid #ff3333;
+    outline-offset: -2.5px;
+    background-color: #ff33330d;
+}
+#history-btn{
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    /* float: left; */
+}

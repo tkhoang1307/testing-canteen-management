@@ -1,0 +1,58 @@
+<body>
+<link rel="stylesheet" href="/css/rechargeFormStyle.css">
+
+<div class="card mb-4 d-flex m-auto mt-5 box-recharge">
+    <div class="d-flex justify-content-center">
+        <p class="mb-0 mt-3 fw-bolder">NẠP TIỀN TÀI KHOẢN</p>
+    </div>
+    <div class="card-body ">
+        <div id="form" class="form d-flex justify-content-center align-items-center flex-column">
+        
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="amount2" class="font-weight-bold">Chọn nhà mạng <span
+                            class="text-danger">*</span></label>
+                    <select type="number" class="form-control mt-2" id="bankcode" value="zalopayapp" required>
+                        <option value="0">Lựa chọn</option>
+                        <option value="1">Vietel</option>
+                        <option value="2">Mobifone</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="amount2" class="font-weight-bold mt-2">Mã thẻ <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control mt-2" id="amount" placeholder="Nhập mã thẻ"  value="" required>
+                    <small class="d-block mt-3">Số tiền nạp tối thiểu là 10.000 VNĐ</small>
+                </div>
+            </div>
+            <div class="px-0">
+                <div class="d-flex justify-content-center">
+                    <div class="form-group d-flex align-items-center mt-3" style="justify-content: space-between;">
+                        <button id="recharge-balance-btn" class="btn btn-zlp btn-primary">NẠP TIỀN</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pop-up hidden">
+        <div class="popup-container">
+            <div class="notification">
+                <div class="noti-header">
+                    <i class="fas fa-window-close"></i>
+                </div>
+                <div class="noti-content-container">
+                    <div class="noti-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<script src="script/rechargeScript.js"></script>
+<script src="script/globalScript.js"></script>
+</body>

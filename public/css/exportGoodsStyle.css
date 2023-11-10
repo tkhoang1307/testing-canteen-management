@@ -1,0 +1,72 @@
+input:disabled{
+    background-color: rgba(206, 230, 248, 0.59) !important;
+    border: 1px solid rgba(0, 0, 0, 0.112);
+}
+
+.panel-container{
+    max-width: 1200px;
+    margin: 2rem auto 0 auto;
+}
+h3{
+    text-align: center;
+    margin-top: 2rem ;
+    margin-bottom: 1rem;
+    color: #475D8F;
+}
+.input-group-text{
+    background-color: #475D8F;
+    color:white
+}
+.input-row{
+    display: flex;
+    align-items: center;
+    border: 2px rgba(0, 0, 0, 0.045) ;
+}
+#add-btn{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.fa-plus{
+    /* float: right; */
+    margin-bottom: 1rem;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: aliceblue;
+    border-radius: 5px;
+    padding: 5px;
+}
+.fa-delete-left{
+    cursor: pointer;
+    padding-left: 1rem;
+    font-size: 25px;
+}
+
+.confirm-btn-div{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3rem;
+    margin-right: 2.5rem;
+}
+
+.red-border{
+    outline: 2px solid #ff3333;
+    outline-offset: -2.5px;
+    background-color: #ff33330d;
+}
+.toggle-the-input{
+    cursor: pointer;
+    /* margin-right: 0.5rem; */
+    margin-left: 1rem;
+}
+.fa-edit{
+    margin-left: 1rem !important;
+}
+.fa-edit:active{
+    scale: 1.2;
+}
+.red-border{
+    outline: 2px solid #ff3333;
+    outline-offset: -2.5px;
+    background-color: #ff33330d;
+}

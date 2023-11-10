@@ -1,0 +1,115 @@
+<body>
+    {{!--
+    <script src="./js/bootstrap.bundle.min.js"></script> --}}
+    {{!--
+    <script src="./js/bootstrap.min.js"></script> --}}
+    {{#if message}}
+        <h3>{{message}}</h3>
+    {{/if}}
+    <link rel="stylesheet" href="css/login-signupStyle.css">
+
+    <div class="pop-up hidden">
+        <div class="popup-container">
+            <div class="notification">
+                <div class="noti-header">
+                    <i class="fas fa-window-close"></i>
+                </div>
+                <div class="noti-content-container">
+                    <div class="noti-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="login-parent-container">
+
+        <div class="container" style="width: 60vw;">
+            <h3>Đăng nhập</h3>
+            <ul class="nav nav-tabs nav-justified mb-3 nav-pills col-sm-12 col-lg-6 offset-lg-3" id="myTab"
+                role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                        type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Người dùng</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                        type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Người quản
+                        lý</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active user-tab" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                    tabindex="0">
+
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-6 offset-lg-3">
+                            <div class="login_form inner_page">
+                                <form id="user-login-form">
+                                    <div class="form-group mb-4">
+                                        <input id="username" type="text" class="form-control input-field" name="username"
+                                            placeholder="Tài khoản" autofocus required>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <input id="password" type="password" class="form-control input-field" name="password"
+                                            placeholder="Mật khẩu" required>
+                                    </div>
+
+    
+                                    <div class="mb-4 col d-flex justify-content-center">
+                                        <button type="button" class="btn btn-log btn-block btn-thm2"
+                                            id="user-login-btn">Đăng nhập</button>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <div class="text-center">
+                                            <p>Chưa có tài khoản?<a href="/sign-up"> Đăng kí</a></p>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade admin-tab" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                    tabindex="0">
+
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-6 offset-lg-3">
+                            <div class="login_form inner_page">
+                                <form id='admin-login-form'>
+                                    <div class="form-group mb-4">
+                                        <input id="username" type="text" class="form-control admin-input-field" name="username"
+                                            placeholder="Tài khoản" autofocus required>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <input id="password" type="password" class="form-control admin-input-field" name="password"
+                                            placeholder="Mật khẩu" required>
+                                    </div>
+
+                                    <div class="mb-4 col d-flex justify-content-center">
+                                        <button type="button" class="btn btn-log btn-block btn-thm2"
+                                            id="admin-login-btn">Đăng nhập</button>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <div class="text-center">
+                                            <p>Chưa có tài khoản?<a href="/sign-up"> Đăng kí</a></p>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="script/loginScript.js"></script>
+    <script src="script/globalScript.js"></script>
+</body>
+
+</html>

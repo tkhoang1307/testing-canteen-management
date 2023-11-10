@@ -1,0 +1,28 @@
+.swap-panel-container{
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.fade-out{
+    background-color:rgba(68, 118, 204, 0.221) !important ;
+    border: none;
+}
+.btn{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+#life-span{
+    max-width: 100px;
+}
+
+#name-1{
+    max-width: 200px;
+}
+
+#price-1{
+    max-width: 150px;
+}
+#category-field-1{
+    max-width: 200px;
+}

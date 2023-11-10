@@ -1,0 +1,94 @@
+<body>
+    <link rel="stylesheet" href="css/importGoodsHistoryStyle.css" />
+    <link rel="stylesheet" href="css/exportGoodsHistoryStyle.css" />
+    <h3>{{message}}</h3>
+    <div class="container">
+        <div class="records-container">
+            <h3>
+                Lịch sử xuất hàng
+            </h3>
+
+            <div class="input-group receipt-search">
+                <input type="search" placeholder="Tìm kiếm đơn theo mã" aria-describedby="button-addon1"
+                    class="rounded rounded-pill form-control border-0 bg-light" id="search-rec-id" value="">
+                <div class="input-group-append">
+                    <button id="search-receipt-btn-2" type="button" class="btn btn-link text-primary"><i
+                            class="fa fa-search"></i></button>
+                </div>
+            </div>
+
+
+                <div class="add-new-rec btn btn-primary">
+                    Thêm đơn xuất hàng
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+
+
+
+
+            <div class="accordion" id="accordionExample">
+                {{#each transactionsList as |parentList|}}
+                {{index}}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <div class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse{{@index}}" aria-expanded="true" aria-controls="collapseOne">
+                            <div class="card-header-custom">
+                                <div class="title-custom">{{#customDate this.chi_tiet_phieu.ngay_xuat}}{{/customDate}}
+                                </div>
+                                <div class="title-custom">Tổng tiền: {{ConvertToVND (getTotalCost this)}}</div>
+                                <div class="title-custom">ID: {{this.ma_phieu}}</div>
+                            </div>
+                        </div>
+                    </h2>
+                    <div id="collapse{{@index}}" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                        <div class="accordion-body">
+                            <div class="table-responsive">
+                                <table class="table table-borderless">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Sản phẩm</th>
+                                            <th scope="col">Số lượng</th>
+                                            <th scope="col">Đơn giá</th>
+                                            <th scope="col" class="text-right">Thành tiền</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each parentList.chi_tiet_phieu.chi_tiet}}
+                                        <tr>
+                                            <td scope="row">{{this.ten_mat_hang}}</td>
+                                            <td>{{this.so_luong}}</td>
+                                            <td>{{ConvertToVND this.don_gia}}</td>
+                                            <td class="text-right">{{ConvertToVND this.thanh_tien}}</td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+
+
+
+
+
+        <nav class="pagination-div" aria-label="Page navigation example">
+            <ul class="pagination">
+                {{#times totalPage}}
+                <li class="page-item page-number {{#ifCond  ../currentPage  '==' this }}active{{/ifCond}}">
+                    <a class="page-link" href="?page={{this}}">{{this}}</a>
+                </li>
+                {{/times}}
+            </ul>
+        </nav>
+    </div>
+    <script src="script/exportGoodsHistoryScript.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<body>
+    <link rel="stylesheet" href="css/importGoodsHistoryStyle.css" />
+ <link rel="stylesheet" href="css/tradingHistoryStyle.css" />
+
+    <div class="container">
+        <div class="records-container">
+            <h3>
+                Lịch sử giao dịch
+            </h3>
+            <div class="input-group receipt-search">
+                <input type="search" placeholder="Tìm kiếm đơn theo mã" aria-describedby="button-addon1"
+                    class="rounded rounded-pill form-control border-0 bg-light" id="search-rec-id" value="">
+                <div class="input-group-append">
+                    <button id="search-receipt-btn" type="button" class="btn btn-link text-primary"><i
+                            class="fa fa-search"></i></button>
+                </div>
+            </div>
+             <h3>{{message}}</h3>
+            <div class="accordion">
+                {{#each transactionsList as |parentList|}}
+                {{index}}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <div class="form-control custom-fc" type="button" value="{{this.ma_don_hang}}">
+                            <div class="card-header-custom">
+                                <div class="title-custom time-column">{{#customDate this.thong_tin.ngaynhap}}{{/customDate}}
+                                </div>
+                                <div class="title-custom receipt-id-column">ID: {{this.ma_don_hang}}</div>
+                                <div class="title-custom">Trạng thái: {{this.thong_tin.trang_thai}}</div>
+                            </div>
+                        </div>
+                    </h2>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <nav class="pagination-div" aria-label="Page navigation example">
+            <ul class="pagination">
+                {{#times totalPage}}
+                <li class="page-item page-number {{#ifCond  ../currentPage  '==' this }}active{{/ifCond}}">
+                    <a class="page-link" href="?page={{this}}">{{this}}</a>
+                </li>
+                {{/times}}
+            </ul>
+        </nav>
+
+    </div>
+    <script src="script/tradingHistoryScript.js"></script>
+</body>
+
+</html>

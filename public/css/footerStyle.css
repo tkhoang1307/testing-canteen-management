@@ -1,0 +1,6 @@
+.footer-container{
+    /* background-color: aqua !important; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
